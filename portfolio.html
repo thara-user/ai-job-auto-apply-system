@@ -2,44 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI Job Auto Apply System</title>
+    <title>Tharani - AI Job Auto-Apply Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f2ef;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #0a66c2;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .github-btn { background-color: #0073b1; } /* LinkedIn Blue */
+        .portfolio-btn { background-color: #28a745; }
+
+        .screenshots img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #0a66c2;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #0a66c2;
+        }
+    </style>
 </head>
 <body>
-    <h1>AI Job Auto Apply System</h1>
-    <p>An AI-powered automated job application system built with Python, Selenium, and AWS.</p>
+    <div class="container">
 
-    <h2>Features</h2>
-    <ul>
-        <li>Resume parsing and skill extraction</li>
-        <li>Job scraping and AI-based matching</li>
-        <li>Automated form filling using Selenium</li>
-        <li>Cloud deployment on AWS EC2</li>
-    </ul>
+        <!-- Header -->
+        <div class="card">
+            <h1>Tharani</h1>
+            <p><strong>AI Job Auto-Apply System</strong></p>
+            <p>Python-based system that parses resumes, matches jobs, and automatically applies for high-match positions.</p>
+            <div class="buttons">
+                <a href="https://github.com/thara-user/ai-job-auto-apply-system" class="github-btn">View GitHub</a>
+                <a href="https://thara-user.github.io/ai-job-auto-apply-system/" class="portfolio-btn">View Live Portfolio</a>
+            </div>
+        </div>
 
-    <h2>Tech Stack</h2>
-    <p>Python, Selenium, BeautifulSoup, AWS EC2, OpenAI API (optional)</p>
+        <!-- Features -->
+        <div class="card">
+            <h2 class="section-title">Features</h2>
+            <ul>
+                <li>Resume Parsing & Skill Extraction</li>
+                <li>Job Matching & Scoring</li>
+                <li>Automated Form Filling & Application Submission</li>
+                <li>Supports Python, AWS, Docker, Linux skills</li>
+            </ul>
+        </div>
 
-    <h2>GitHub</h2>
-     <a href="https://github.com/tharak123/ai-job-auto-apply-system">View on GitHub</a
->
+        <!-- Tech Stack -->
+        <div class="card">
+            <h2 class="section-title">Tech Stack</h2>
+            <ul>
+                <li>Python</li>
+                <li>Selenium WebDriver</li>
+                <li>BeautifulSoup4</li>
+                <li>ChromeDriver / Google Chrome</li>
+                <li>Web Scraping & Automation</li>
+            </ul>
+        </div>
 
-<h2>GitHub & Portfolio</h2>
+        <!-- Screenshots -->
+        <div class="card">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots">
+                <img src="screenshots/resume_parsing.png" alt="Resume Parsing">
+                <img src="screenshots/job_match.png" alt="Job Matching">
+                <img src="screenshots/auto_fill.png" alt="Auto-Fill Success">
+            </div>
+        </div>
 
-<a href="https://github.com/thara-user/ai-job-auto-apply-system" 
-   style="text-decoration:none; padding:10px 20px; background-color:#007bff; color:white; border-radius:5px;">
-   View on GitHub
-</a>
-
-<a href="https://thara-user.github.io/ai-job-auto-apply-system/" 
-   style="text-decoration:none; padding:10px 20px; background-color:#28a745; color:white; border-radius:5px; margin-left:10px;">
-   View Portfolio
-</a>
-<h2>Project Screenshots</h2>
-
-<img src="screenshots/resume_parsing.png" alt="Resume Parsing Output" width="600">
-<img src="screenshots/job_match.png" alt="Job Matching Table" width="600">
-<img src="screenshots/auto_fill.png" alt="Selenium Auto-Fill Success" width="600">
-
-
+    </div>
 </body>
 </html>
