@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Dashboard - Level 3</title>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- jsPDF CDN for PDF download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<!-- Header -->
+<div class="text-center py-6 bg-blue-600 text-white">
+  <h1 class="text-3xl font-bold">Job Dashboard</h1>
+</div>
+
+<!-- Cards Section -->
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-6 px-4">
+  <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+    <h3 class="text-gray-500 font-medium">Jobs Applied</h3>
+    <p class="text-3xl font-bold mt-2">25</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+    <h3 class="text-gray-500 font-medium">Interviews Scheduled</h3>
+    <p class="text-3xl font-bold mt-2">5</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+    <h3 class="text-gray-500 font-medium">Companies Targeted</h3>
+    <p class="text-3xl font-bold mt-2">12</p>
+  </div>
+</div>
+
+<!-- Charts Section -->
+<div class="max-w-6xl mx-auto bg-white p-6 rounded-xl shadow my-6 px-4">
+  <h2 class="text-xl font-semibold mb-4">Applications Over Weeks</h2>
+  <canvas id="applicationsChart" class="w-full"></canvas>
+</div>
+
+<!-- Download Buttons -->
+<div class="max-w-6xl mx-auto flex gap-4 justify-center my-6">
+  <button id="downloadPDF" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Download PDF</button>
+  <button id="downloadCSV" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">Download CSV</button>
+</div>
+
+<script>
+// Chart.js setup
+const ctx = document.getElementById('applicationsChart').getContext('2d');
+const applicationsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+            label: 'Applications',
+            data: [5, 10, 7, 12],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+// PDF Download
+document.getElementById('downloadPDF').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("Job Dashboard Report", 10, 20);
+    doc.setFontSize(12);
+    doc.text("Jobs Applied: 25", 10, 40);
+    doc.text("Interviews Scheduled: 5", 10, 50);
+    doc.text("Companies Targeted: 12", 10, 60);
+    doc.save("JobDashboardReport.pdf");
+});
+
+// CSV Download
+document.getElementById('downloadCSV').addEventListener('click', () => {
+    const rows = [
+        ["Metric","Value"],
+        ["Jobs Applied",25],
+        ["Interviews Scheduled",5],
+        ["Companies Targeted",12]
+    ];
+    let csvContent = "data:text/csv;charset=utf-8," 
+        + rows.map(e => e.join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "JobDashboardReport.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+</script>
+
+</body>
+</html>
